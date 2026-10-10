@@ -1,0 +1,8 @@
+name: handwritten-digits-mlflow
+
+entry_points:
+  main:
+    parameters:
+      # str, não path: path vira caminho absoluto e quebra com espaços no Windows
+      config: {type: str, default: configs/A_referencia.yaml}
+    command: "python -m src.train --config {config}"

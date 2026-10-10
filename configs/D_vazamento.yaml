@@ -1,0 +1,23 @@
+experiment: a1-digits-mlp
+run_name: D_vazamento
+description: >
+  Run D (diagnóstico): igual à A, mas com o StandardScaler ajustado no dataset inteiro
+  antes do split, reproduzindo o bug do mlp_torch_avaliacao.py original.
+  Pergunta: o vazamento deixa a validação otimista neste dataset?
+tags:
+  changed_param: data.leak_scaler
+  hypothesis: com vazamento a val_loss fica artificialmente menor que na A
+
+seed: 42
+data:
+  val_size: 0.15
+  test_size: 0.15
+  leak_scaler: true
+model:
+  hidden: [128, 64]
+  dropout: 0.0
+train:
+  epochs: 100
+  batch_size: 64
+  lr: 0.01
+  weight_decay: 0.0

@@ -1,0 +1,22 @@
+experiment: a1-digits-mlp
+run_name: A_referencia
+description: >
+  Run A (baseline): mesma receita do mlp_torch_avaliacao.py (Adam, lr=0.01, sem L2).
+  Pergunta: qual o desempenho da MLP sem regularização e existe gap entre train_loss e val_loss?
+tags:
+  changed_param: nenhum (baseline)
+  hypothesis: sem regularização a val_loss passa a subir enquanto a train_loss continua caindo
+
+seed: 42
+data:
+  val_size: 0.15
+  test_size: 0.15
+  leak_scaler: false
+model:
+  hidden: [128, 64]
+  dropout: 0.0
+train:
+  epochs: 100
+  batch_size: 64
+  lr: 0.01
+  weight_decay: 0.0

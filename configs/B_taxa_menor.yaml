@@ -1,0 +1,22 @@
+experiment: a1-digits-mlp
+run_name: B_taxa_menor
+description: >
+  Run B: altera somente train.lr (0.01 -> 0.001) em relação à A.
+  Pergunta: uma taxa 10x menor deixa a curva mais estável ou só mais lenta?
+tags:
+  changed_param: train.lr
+  hypothesis: lr menor gera curvas mais suaves e menor gap, com convergência mais lenta
+
+seed: 42
+data:
+  val_size: 0.15
+  test_size: 0.15
+  leak_scaler: false
+model:
+  hidden: [128, 64]
+  dropout: 0.0
+train:
+  epochs: 100
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0

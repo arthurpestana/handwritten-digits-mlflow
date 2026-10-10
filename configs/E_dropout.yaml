@@ -1,0 +1,22 @@
+experiment: a1-digits-mlp
+run_name: E_dropout
+description: >
+  Run E: altera somente model.dropout (0 -> 0.3) em relação à A.
+  Pergunta: desligar 30% dos neurônios a cada passo de treino reduz o overfitting da A, e como se compara ao L2 da C?
+tags:
+  changed_param: model.dropout
+  hypothesis: dropout impede a co-adaptação dos neurônios, aumenta a train_loss e reduz o gap
+
+seed: 42
+data:
+  val_size: 0.15
+  test_size: 0.15
+  leak_scaler: false
+model:
+  hidden: [128, 64]
+  dropout: 0.3
+train:
+  epochs: 100
+  batch_size: 64
+  lr: 0.01
+  weight_decay: 0.0

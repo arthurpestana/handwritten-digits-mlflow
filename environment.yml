@@ -1,0 +1,9 @@
+# Alternativa à venv: conda env create -f environment.yml && conda activate handwritten-digits-mlflow
+name: handwritten-digits-mlflow
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -r requirements.txt

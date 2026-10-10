@@ -1,0 +1,18 @@
+# Rastro do MLflow (gerado ao rodar os experimentos)
+mlruns/
+mlartifacts/
+mlflow.db
+mlflow.db-journal
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.conda/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
